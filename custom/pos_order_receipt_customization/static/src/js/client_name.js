@@ -1,4 +1,4 @@
-odoo.define('pos_order_receipt_customization.models', function(require) {
+odoo.define('pos_order_receipt_customization.client_name', function(require) {
     'use strict';
 
     var { Order } = require('pos_of_sale.models');
@@ -7,7 +7,7 @@ odoo.define('pos_order_receipt_customization.models', function(require) {
     const CustomOrder = (Order) => class CustomOrder extends Order {
         export_for_pricing(){
             var result = super.export_for_pricing(...arguments);
-            result.client = this.get_partner();
+            result.client = this.get_partner();          
             return result;
         };
     };
